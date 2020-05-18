@@ -8,10 +8,35 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
-<%= yield %>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Oogle inc.</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" href="#">Features</a>
+      <a class="p-2 text-dark" href="#">Enterprise</a>
+      <a class="p-2 text-dark" href="#">Support</a>
+      <% if account_signed_in? %>
+      <span class="p-2 text-dark" > Hello, <%= current_account.email %>!</span>
+      
+      <%= link_to('Logout', destroy_account_session_path, method: :delete) %>       
+      
+      <% end %>
+    </nav>
+  </div>
+
+<div class="container">
+  <div class="mt">
+    <div class="centrate">
+      <p class="notice"><%= notice %></p>
+      <br>
+      <p class="alert"><%= alert %></p>
+      <br>
+      <%= yield %>  
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
