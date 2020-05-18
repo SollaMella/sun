@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Receipt Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Receipt</th>
+      <th>Item</th>
+      <th>Item count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @receipt_items.each do |receipt_item| %>
+      <tr>
+        <td><%= receipt_item.receipt_id %></td>
+        <td><%= receipt_item.item_id %></td>
+        <td><%= receipt_item.item_count %></td>
+        <td><%= link_to 'Show', receipt_item %></td>
+        <td><%= link_to 'Edit', edit_receipt_item_path(receipt_item) %></td>
+        <td><%= link_to 'Destroy', receipt_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Receipt item', new_receipt_item_path %>
