@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Nickname</th>
       <th>Full name</th>
       <th>Shop</th>
       <th>Department</th>
@@ -16,10 +15,9 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.nickname %></td>
         <td><%= employee.full_name %></td>
         <td><%= employee.shop_id %></td>
-        <td><%= employee.department_id %></td>
+        <td><%= employee.department.role %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

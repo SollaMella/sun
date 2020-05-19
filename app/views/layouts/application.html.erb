@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Thesis</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title><%= yield :page_title %>Thesis</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
   <%= csrf_meta_tags %>
+  <%= yield :after_css %>
 </head>
-<body>
+<body class=”controller-<%= controller.controller_name.dasherize %> action-<%= controller.action_name.dasherize %>”>
 
 
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Oogle inc.</h5>
+
+    <h4 class="my-0 mr-md-auto font-weight-normal">Oogle inc.</h4>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="#">Features</a>
-      <a class="p-2 text-dark" href="#">Enterprise</a>
-      <a class="p-2 text-dark" href="#">Support</a>
+    <%= link_to "Accounts", {controller: "accounts", action: "index"}, class: "p-2 text-dark"%>
+    <%= link_to "Employees", {controller: "employees", action: "index"}, class: "p-2 text-dark"%>
+    <%= link_to "Departments", {controller: "departments", action: "index"}, class: "p-2 text-dark"%>
       <% if account_signed_in? %>
-      <span class="p-2 text-dark" > Hello, <%= current_account.email %>!</span>
+      <span class="p-2 text-dark" > Hello, <%= current_account.employee.full_name %>!</span>
       
       <%= link_to('Logout', destroy_account_session_path, method: :delete) %>       
       

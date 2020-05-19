@@ -42,6 +42,8 @@ GEM
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
+    bootscaf (0.1.26)
+      thor
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
@@ -178,6 +180,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootscaf
   bootstrap (~> 4.0.0)
   byebug
   coffee-rails (~> 4.1.0)

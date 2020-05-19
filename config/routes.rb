@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :accounts
+  devise_for :accounts, controllers: {registrations: 'accounts/registrations'}
   resources :departments
   resources :accounts
   resources :receipt_items
